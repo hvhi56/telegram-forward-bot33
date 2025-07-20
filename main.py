@@ -17,9 +17,7 @@ ALLOWED_LINKS = [
 link_pattern = re.compile(r'(https?://\S+|t\.me/\S+)', re.IGNORECASE)
 
 def should_forward(message):
-    text = message.text or ""
-    caption = message.caption or ""
-    content = text + "\n" + caption
+    content = message.text or ""
 
     links = link_pattern.findall(content)
     if not links:
